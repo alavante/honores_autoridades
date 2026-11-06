@@ -151,23 +151,6 @@
 </head>
 <body>
 
-  <script>
-    // Forzar purga de caché vieja en móviles
-    const APP_VERSION = 'v1792948779';
-    if (localStorage.getItem('app_ver') !== APP_VERSION) {
-      localStorage.setItem('app_ver', APP_VERSION);
-      if ('caches' in window) {
-        caches.keys().then(names => {
-          for (let name of names) caches.delete(name);
-        });
-      }
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(regs => {
-          for (let reg of regs) reg.unregister();
-        });
-      }
-    }
-  </script>
 
 
   <!-- Reproductores estáticos precargados para Ceremonial de Autoridades -->
